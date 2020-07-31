@@ -121,7 +121,9 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
                 /bin/sleep 10
                 /bin/echo "`date`: Deleting downloaded PKG." >> ${logfile}
                 /bin/rm /tmp/${pkgfile}
-
+                /bin/echo "`date`: Installing Zoom Audio Device." >> ${logfile}
+		/bin/cp -R /Applications/zoom.us.app/Contents/PlugIns/ZoomAudioDevice.driver /Library/Audio/Plug-Ins/HAL/
+                /bin/echo "Installed Zoom Audio Driver"
         # If Zoom is up to date already, just log it and exit.
         else
                 /bin/echo "`date`: Zoom is already up to date, running ${currentinstalledver}." >> ${logfile}
