@@ -127,7 +127,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
         # If Zoom is up to date already, just log it and exit.
         else
                 /bin/echo "`date`: Zoom is already up to date, running ${currentinstalledver}." >> ${logfile}
-        /bin/echo "--" >> ${logfile}
+                /bin/echo "--" >> ${logfile}
         fi
 
 else
