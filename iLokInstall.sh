@@ -23,6 +23,7 @@
 #
 #
 
+#set urls and logging info
 url="http://installers.ilok.com/iloklicensemanager/LicenseSupportInstallerMac.zip"
 logfile="/Library/Logs/iLokInstallScript.log"
 pkgfile="LicenseSupportInstallerMac.zip"
