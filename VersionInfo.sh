@@ -47,6 +47,7 @@ check="app"
 for name in $(ls "$DIR");
 do
   if [[ "$name" == *"$check"* ]]; then
+    echo $name: `/usr/bin/defaults read /Applications/"$name"/Contents/Info CFBundleShortVersionString`"
     echo "<p>$name: `/usr/bin/defaults read /Applications/"$name"/Contents/Info CFBundleShortVersionString`</p>" >> ${outfile}
     echo "" >> ${outfile}
   else
