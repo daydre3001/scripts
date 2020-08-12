@@ -26,6 +26,7 @@
 
 outfile=/Applications/versionChecker/Versions.html
 DIR=/Applications
+UADIR=/Applications/Universal\ Audio
 
 if [ ! -d "/Applications/versionCheck/" ]; then
   mkdir -p "/Applications/versionChecker"
@@ -47,13 +48,26 @@ check="app"
 for name in $(ls "$DIR");
 do
   if [[ "$name" == *"$check"* ]]; then
-    echo $name: `/usr/bin/defaults read /Applications/"$name"/Contents/Info CFBundleShortVersionString`"
-    echo "<p>$name: `/usr/bin/defaults read /Applications/"$name"/Contents/Info CFBundleShortVersionString`</p>" >> ${outfile}
+    echo "<p>$name: `/usr/bin/defaults read "$DIR"/"$name"/Contents/Info CFBundleShortVersionString`</p>" >> ${outfile}
+    echo "$name: `/usr/bin/defaults read "$DIR"/"$name"/Contents/Info CFBundleShortVersionString`</p>"
     echo "" >> ${outfile}
   else
     continue
   fi
 done
+
+if [ -d "$UADIR" ]; then
+  for name in $(ls "$UADIR");
+    do
+      if [[ "$name" == *"$check"* ]]; then
+        echo "<p>$name: `/usr/bin/defaults read "$UADIR"/"$name"/Contents/Info CFBundleShortVersionString`</p>" >> ${outfile}
+        echo "$name: `/usr/bin/defaults read "$UADIR"/"$name"/Contents/Info CFBundleShortVersionString`"
+        echo "" >> ${outfile}
+      else
+        continue
+      fi
+    done
+fi
 
 echo "</body>" >> ${outfile}
 echo "</html>" >> ${outfile}
