@@ -35,5 +35,5 @@ rm -f $PLIST # Make sure we are idempotent
 /bin/launchctl load $PLIST
 
 #chown -R root:wheel /Users/Shared/*
-chmod -R a+rw "/Users/Shared/Pro Tools"
-chmod -R a+rw "/Users/Shared/AvidVideoEngine"
+#chmod -R a+rw "/Users/Shared/Pro Tools"
+#chmod -R a+rw "/Users/Shared/AvidVideoEngine"
