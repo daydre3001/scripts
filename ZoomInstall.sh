@@ -65,6 +65,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
             	echo "Current installed version is: $currentinstalledver"
                 if [ ${latestver} = ${currentinstalledver} ]; then
                         echo "Zoom is current. Exiting"
+                        /bin/echo "`date`: Zoom is current. Exiting" >> ${logfile}
                         exit 0
                 fi
         else
@@ -138,7 +139,7 @@ if [ "$zoomopen" = true ]; then
 	/usr/bin/open /Applications/zoom.us.app/
 else
 	echo "Zoom is ready"
-        /bin.echo "`date`: Zoom is ready" >> ${logfile}
+        bin/echo "`date`: Zoom is ready" >> ${logfile}
 fi
 
 exit 0
