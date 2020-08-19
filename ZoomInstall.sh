@@ -60,7 +60,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
 
         # Get the version number of the currently-installed Zoom, if any.
         if [ -e "/Applications/zoom.us.app" ]; then
-                currentinstalledver=`/usr/bin/defaults read /Applications/zoom.us.app/Contents/Info CFBundleShortVersionString`
+                currentinstalledver=`/usr/bin/defaults read /Applications/zoom.us.app/Contents/Info CFBundleVersion`
           		currentinstalledver=${currentinstalledver//(*)/}
             	echo "Current installed version is: $currentinstalledver"
                 if [ ${latestver} = ${currentinstalledver} ]; then
@@ -68,7 +68,6 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
                         exit 0
                 fi
         else
-                currentinstalledver="none"
                 echo "Zoom is not installed"
         fi
 
@@ -79,7 +78,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
 
         # Compare the two versions, if they are different or Zoom is not present then download and install the new version.
         if [ "${currentinstalledver}" != "${latestver}" ]; then
-
+                
                 # Construct the plist file for preferences
                 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                  <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
@@ -139,6 +138,7 @@ if [ "$zoomopen" = true ]; then
 	/usr/bin/open /Applications/zoom.us.app/
 else
 	echo "Zoom is ready"
+        /bin.echo "`date`: Zoom is ready" >> ${logfile}
 fi
 
 exit 0
