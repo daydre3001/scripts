@@ -49,7 +49,7 @@ echo "Install pkg name: ${installpkg}"
 /bin/echo "`date`: Installing the new iLok Manager"
 
 #Install iLok package
-/bin/echo "`date`: Runnign Installer" >> ${logfile}
+/bin/echo "`date`: Runnign Installer target /" >> ${logfile}
 /usr/sbin/installer -allowUntrusted -pkg /Volumes/"${installvol}"/"${installpkg}" -target /
 
 #unmount Volume and clean up
@@ -57,5 +57,7 @@ echo "Install pkg name: ${installpkg}"
 /usr/bin/hdiutil detach /Volumes/"${installvol}"
 /bin/rm /tmp/${pkgfile}
 /bin/rm -r /tmp/ilokinstall
+/bin/echo "Install Complete"
+/bin/echo "`date`: Install Complete" >> ${logfile}
 
 exit 0
