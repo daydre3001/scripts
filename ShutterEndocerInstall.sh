@@ -44,10 +44,10 @@ else
   url="http://www.shutterencoder.com/${toinstall}"
   url=${url// /%20}
   /usr/bin/curl -L -o /tmp/${pkgfile} ${url}
-  echo "`date` :Installing Shutter Encoder"
+  echo "`date` :Unzipping to /Applications"
   /usr/bin/unzip /tmp/${pkgfile} -d /Applications
   /usr/sleep 5
-  echo "`date` :cleaning up" >> ${logfile}
+  echo "`date` :Cleaning Up" >> ${logfile}
   /bin/rm /tmp/${pkgfile}
   /bin/rm -f -R /Applications/__MACOSX/
 fi
