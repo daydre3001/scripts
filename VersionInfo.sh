@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#       Version: 1.0
+#       Version: 1.1
 #
 #       - Andres Sanchez, 22.6.2020
 #
