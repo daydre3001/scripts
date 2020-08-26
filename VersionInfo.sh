@@ -67,6 +67,10 @@ if [ -d "$UADIR" ]; then
         continue
       fi
     done
+else
+  echo "<p>UAD Software not installed/found</p>" >> ${outfile}
+  echo "" >> ${outfile}
+  echo "UAD Software not installed/found"
 fi
 
 echo "</body>" >> ${outfile}
