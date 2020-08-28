@@ -36,16 +36,6 @@ logfile="/Library/Logs/ZoomInstallScript.log"
 zoomPID=$(pgrep 'zoom')
 zoomopen=true
 
-# Check if Zoom is running
-if [ "${zoomPID}" != "" ]; then
-		zoomopen=true
-		kill ${zoomPID}
-		echo "Zoom will re-open once the Install is complete" >> ${logfile}
-	else
-		zoomopen=false
-		echo "Zoom is not running, continuing with the install" >> ${logfile}
-fi
-
 # Are we running on Intel?
 if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
         ## Get OS version and adjust for use with the URL string
@@ -70,6 +60,16 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
                 fi
         else
                 echo "Zoom is not installed"
+        fi
+
+        # Check if Zoom is running
+        if [ "${zoomPID}" != "" ]; then
+                        zoomopen=true
+                        kill ${zoomPID}
+                        echo "Zoom will re-open once the Install is complete" >> ${logfile}
+                else
+                        zoomopen=false
+                        echo "Zoom is not running, continuing with the install" >> ${logfile}
         fi
 
         url="https://zoom.us/client/${latestver}/ZoomInstallerIT.pkg"
