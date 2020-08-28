@@ -13,7 +13,7 @@
 #
 # HISTORY
 #
-#       Version: 1.1
+#       Version: 1.2
 #
 #       - Andres Sanchez, 15.5.2020
 #       (Adapted from the FirefoxInstall.sh script by Joe Farage, 18.03.2015)
