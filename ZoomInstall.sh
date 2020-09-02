@@ -90,7 +90,7 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
                         <key>ZAutoJoinVoip</key>
                         <true/>
                         <key>ZDualMonitorOn</key>
-                        <true/>" >> /tmp/${plistfile}
+                        <false/>" >> /tmp/${plistfile}
 
                 echo "<key>ZAutoFullScreenWhenViewShare</key>
                         <false/>
