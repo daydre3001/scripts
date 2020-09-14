@@ -139,7 +139,7 @@ if [ "$zoomopen" = true ]; then
 	/usr/bin/open /Applications/zoom.us.app/
 else
 	echo "Zoom is ready"
-        bin/echo "`date`: Zoom is ready" >> ${logfile}
+        /bin/echo "`date`: Zoom is ready" >> ${logfile}
 fi
 
 exit 0
