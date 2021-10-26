@@ -51,5 +51,7 @@ appName=`ls "/Volumes/${installvol}/" | grep 8x8`
 /usr/bin/hdiutil detach /Volumes/"${installvol}"
 /bin/rm /tmp/${imgfile}
 
+## Launch 8x8
+usr/bin/open /Applications/8x8\ Work.app/
 
 exit 0
