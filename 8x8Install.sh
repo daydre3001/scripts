@@ -47,7 +47,7 @@ imgfile=`echo ${url} | cut -d '/' -f3`
 echo "`date` : Downloading 8x8 image" >> ${logfile}
 
 ## Attach and copy the 8x8 app
-echo "`date` : Attaching image" >> ${logfile}
+echo "`date` : Attaching image ${imgfile}" >> ${logfile}
 /usr/bin/hdiutil attach -nobrowse /tmp/${imgfile}
 installvol=$(ls /Volumes/ | grep 8x8)
 appName=`ls "/Volumes/${installvol}/" | grep 8x8`
