@@ -11,7 +11,7 @@
 #
 ####################################################################################################
 #
-#       Version: 1.7
+#       Version: 2.0
 #
 #       - Andres Sanchez, 5.10.2021
 #       
@@ -35,8 +35,10 @@ echo "Current installed version is: $currentinstalledver" >> ${logfile}
 
 if [ ${latestver} = ${currentinstalledver} ]; then
     echo "8x8 is current. Exiting" >> ${logfile}
+    echo "8x8 is current. Exiting"
     exit 0
     else
+    echo "Downloading and Installing 8x8"
             ## Close 8x8 if runnig
         if [ "${workPID}" != "" ]; then
                 kill ${workPID}
