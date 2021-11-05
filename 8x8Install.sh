@@ -26,12 +26,12 @@ logfile="/Library/Logs/8x8InstallScript.log"
 # unmounting all other images
 images=$(ls /Volumes/ | grep "8x8")
 if [ "$images" ]; then
-    echo "Ejecting old 8x8 images"
+    echo "Ejecting old 8x8 images" >> ${logfile}
     echo "$images" | while read line ; do
     hdiutil detach /Volumes/"$line"
     done
     else
-    echo "No other 8x8 images mounted"
+    echo "No other 8x8 images mounted" >> ${logfile}
 fi
 
 ## Close 8x8 if runnig
