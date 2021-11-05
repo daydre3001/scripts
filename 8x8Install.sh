@@ -24,13 +24,14 @@ workPID=$(pgrep '8x8')
 logfile="/Library/Logs/8x8InstallScript.log"
 
 # unmounting all other images
-disks=$(diskutil list external virtual | sed -n '/[Ss]cheme/s/.*B *//p')
-if [ "$disks" ]; then
-        echo "$disks" | while read line ; do
-        diskutil unmountDisk /dev/$line
-        done
-        else
-        echo "No external disks to eject"
+images=$(ls /Volumes/ | grep "8x8")
+if [ "$images" ]; then
+    echo "Ejecting old 8x8 images"
+    echo "$images" | while read line ; do
+    hdiutil detach /Volumes/"$line"
+    done
+    else
+    echo "No other 8x8 images mounted"
 fi
 
 ## Close 8x8 if runnig
