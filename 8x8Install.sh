@@ -29,6 +29,7 @@ latestver=`expr "$imgfile" : '.*\(v[0-9].*[0-9]\)'`
 latestver=${latestver/v/}
 latestver=${latestver/-/.}
 
+echo "Checking for installed version"
 isinstalled=`ls /Applications/ | grep "8x8"`
 if [ "${isinstalled}" ]; then
     currentinstalledver=`/usr/bin/defaults read /Applications/8x8\ Work.app/Contents/Info CFBundleVersion`
@@ -59,6 +60,7 @@ if [ "${isinstalled}" ]; then
     fi
 fi
 
+echo "Installing 8x8"
 echo "`date` : Deleting 8x8" >> ${logfile}
 /bin/rm -r -f "/Applications/8x8 Work.app"
 
@@ -69,8 +71,9 @@ OSvers_URL=$( sw_vers -productVersion | sed 's/[.]/_/g' )
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
 ## Download the latest 8x8 image
-/usr/bin/curl -L -o /tmp/${imgfile} ${url}
 echo "`date` : Downloading 8x8 image" >> ${logfile}
+echo "`date` : Downloading 8x8 image"
+/usr/bin/curl -L -s -S -o /tmp/${imgfile} ${url}
 
 ## Attach and copy the 8x8 app
 echo "`date` : Attaching image ${imgfile}" >> ${logfile}
