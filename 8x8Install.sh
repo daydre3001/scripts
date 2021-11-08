@@ -88,6 +88,7 @@ installvol=$(ls /Volumes/ | grep 8x8)
 appName=`ls "/Volumes/${installvol}/" | grep 8x8`
 echo "`date` : Copying $appName to Applications folder" >> ${logfile}
 /bin/cp -R "/Volumes/${installvol}/${appName}" /Applications/
+/bin/sleep 5
 
 ## Detach and remove image
 echo "`date` : Detaching $installvol and cleaning up" >> ${logfile}
