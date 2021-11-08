@@ -58,6 +58,9 @@ if [ "${isinstalled}" ]; then
                 echo "No other 8x8 images mounted" >> ${logfile}
             fi
     fi
+    else
+    echo "8x8 not installed"
+    echo "8x8 not installed" >> ${logfile}
 fi
 
 ## Get OS version and adjust for use with the URL string
