@@ -36,7 +36,7 @@ if [ "${isinstalled}" ]; then
     currentinstalledver=${currentinstalledver//(*)/}
     echo "Current installed version is: $currentinstalledver" >> ${logfile}
 
-    if [ ${latestver} = ${currentinstalledver} ]; then
+    if [ "${latestver}" = "${currentinstalledver}" ]; then
         echo "8x8 is current. Exiting" >> ${logfile}
         echo "8x8 is current. Exiting"
         exit 0
@@ -60,24 +60,27 @@ if [ "${isinstalled}" ]; then
     fi
 fi
 
-echo "Installing 8x8"
-echo "`date` : Deleting 8x8" >> ${logfile}
-/bin/rm -r -f "/Applications/8x8 Work.app"
-
 ## Get OS version and adjust for use with the URL string
 OSvers_URL=$( sw_vers -productVersion | sed 's/[.]/_/g' )
 
 ## Set the User Agent string for use with curl
 userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535.6.2 (KHTML, like Gecko) Version/5.2 Safari/535.6.2"
 
+set -e
 ## Download the latest 8x8 image
 echo "`date` : Downloading 8x8 image" >> ${logfile}
 echo "`date` : Downloading 8x8 image"
 /usr/bin/curl -L -s -S -o /tmp/${imgfile} ${url}
 
+if [ "${isinstalled}" ]; then
+    echo "`date` : Deleting 8x8" >> ${logfile}
+    /bin/rm -r -f "/Applications/8x8 Work.app"
+fi
+
+echo "Installing 8x8"
 ## Attach and copy the 8x8 app
 echo "`date` : Attaching image ${imgfile}" >> ${logfile}
-/usr/bin/hdiutil attach -nobrowse /tmp/${imgfile}
+/usr/bin/hdiutil attach -nobrowse -quiet /tmp/${imgfile}
 installvol=$(ls /Volumes/ | grep 8x8)
 appName=`ls "/Volumes/${installvol}/" | grep 8x8`
 echo "`date` : Copying $appName to Applications folder" >> ${logfile}
