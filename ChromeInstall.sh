@@ -31,7 +31,7 @@ if  [[ `arch` == arm64 ]]; then
 fi
 
 echo "Deleting old version of Chrome" >> ${logfile}
-rm -rf /Apllications/Google\ Chrome.app
+rm -rf /Applications/Google\ Chrome.app
 cho "Attaching and installing Chrome" >> ${logfile}
 /usr/bin/hdiutil attach /tmp/${imgfile}
 cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications/
