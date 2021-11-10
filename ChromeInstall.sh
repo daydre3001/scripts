@@ -33,7 +33,7 @@ fi
 echo "Deleting old version of Chrome" >> ${logfile}
 rm -rf /Applications/Google\ Chrome.app
 cho "Attaching and installing Chrome" >> ${logfile}
-/usr/bin/hdiutil attach /tmp/${imgfile}
+/usr/bin/hdiutil attach --quite --nobrowse /tmp/${imgfile}
 cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications/
 /bin/sleep 5
 echo "Cleaning up" >> ${logfile}
