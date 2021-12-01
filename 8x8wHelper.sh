@@ -70,6 +70,16 @@ downloadAndInstall () {
     echo "`date` : 8x8 is ready" >> ${logfile}
 } 
 
+verifyInstall () {
+    verify=`ls /Applications/ | grep "8x8"`
+    if [ "${verify}" ]; then
+        return 1
+    else
+        echo "`date` : An issue was encountered, trying again" >> %{logfile}
+        downloadAndInstall
+    fi
+}
+
 echo "Checking for installed version"
 isinstalled=`ls /Applications/ | grep "8x8"`
 if [ "${isinstalled}" ]; then
@@ -100,6 +110,7 @@ if [ "${isinstalled}" ]; then
                 echo "No other 8x8 images mounted" >> ${logfile}
             fi
             downloadAndInstall
+            verifyInstall
             buttonComplete=`/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType utility -title "$title" -heading "Update Complete"  -description "8x8 is ready!"  -button1 "OK" -button2 "Exit" -defaultButton 1 -cancelButton 2`
             if [ $buttonComplete == 0 ]; then
                 exit 0
