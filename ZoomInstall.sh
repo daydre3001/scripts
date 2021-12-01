@@ -27,7 +27,6 @@
 hdvideo="true"
 ssodefault="false"
 
-
 # choose language (en-US, fr, de)
 lang="en-US"
 pkgfile="ZoomInstallerIT.pkg"
