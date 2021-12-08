@@ -81,9 +81,9 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
                 
                 # Construct the plist file for preferences
                 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-                 <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
-                 <plist version=\"1.0\">
-                 <dict>
+                <!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+                <plist version=\"1.0\">
+                <dict>
                         <key>ZDisableVideo</key>
                         <true/>
                         <key>ZAutoJoinVoip</key>
@@ -123,8 +123,8 @@ if [ '`/usr/bin/uname -p`'="i386" -o '`/usr/bin/uname -p`'="x86_64" ]; then
                 /bin/echo "`date`: Installing Zoom Audio Device." >> ${logfile}
 		/bin/cp -R /Applications/zoom.us.app/Contents/PlugIns/ZoomAudioDevice.driver /Library/Audio/Plug-Ins/HAL/
                 /bin/echo "Installed Zoom Audio Driver"
-        # If Zoom is up to date already, just log it and exit.
         else
+                # If Zoom is up to date already, just log it and exit.
                 /bin/echo "`date`: Zoom is already up to date, running ${currentinstalledver}." >> ${logfile}
                 /bin/echo "--" >> ${logfile}
         fi
