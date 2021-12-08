@@ -65,7 +65,7 @@ downloadAndInstall () {
 
     ## Detach and remove image
     echo "`date` : Detaching $installvol and cleaning up" >> ${logfile}
-    /usr/bin/hdiutil detach /Volumes/"${installvol}"
+    /usr/bin/hdiutil detach /Volumes/"${installvol}" -force
     /bin/rm /tmp/${imgfile}
     echo "`date` : 8x8 is ready" >> ${logfile}
 } 
@@ -73,7 +73,7 @@ downloadAndInstall () {
 verifyInstall () {
     verify=`ls /Applications/ | grep "8x8"`
     if [ "${verify}" ]; then
-        return 1
+        return 0
     else
         echo "`date` : An issue was encountered, trying again" >> %{logfile}
         downloadAndInstall
@@ -104,7 +104,7 @@ if [ "${isinstalled}" ]; then
             if [ "$images" ]; then
                 echo "Ejecting old 8x8 images" >> ${logfile}
                 echo "$images" | while read line ; do
-                hdiutil detach /Volumes/"$line"
+                hdiutil detach /Volumes/"$line" -force
                 done
             else
                 echo "No other 8x8 images mounted" >> ${logfile}
