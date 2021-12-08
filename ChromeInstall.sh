@@ -37,7 +37,7 @@ cho "Attaching and installing Chrome" >> ${logfile}
 cp -R /Volumes/Google\ Chrome/Google\ Chrome.app /Applications/
 /bin/sleep 5
 echo "Cleaning up" >> ${logfile}
-/usr/bin/hdiutil detach /Volumes/Google\ Chrome/
+/usr/bin/hdiutil detach /Volumes/Google\ Chrome/ -force
 /bin/rm /tmp/${imgfile}
 /bin/sleep 5
 
