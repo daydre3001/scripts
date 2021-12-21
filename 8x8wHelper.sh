@@ -118,7 +118,7 @@ if [ "${isinstalled}" ]; then
                 exit 0
             fi
         elif [ $buttonClicked == 1 ]; then
-            exti 0
+            exit 0
         fi
     fi
 else
