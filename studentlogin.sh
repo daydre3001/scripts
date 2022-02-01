@@ -2,12 +2,12 @@
 sudo osascript <<EOF 
 
 tell application "System Events"
-    keystroke "student"
+    keystroke "local"
     keystroke return
 
     delay 2
 
-    keystroke "student"
+    keystroke "local"
     keystroke return
 end tell
 
