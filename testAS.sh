@@ -1,28 +1,28 @@
 #!/bin/bash 
-sudo osascript <<EOF 
 
-  delay 3
+sudo osascript <<-EOF 
 
-  tell application "System Events"
-      keystroke "student"
-      keystroke return
+    delay 3
 
-      delay 2
+    tell application "System Events"
+        keystroke "student"
+        keystroke return
 
-      keystroke "student"
-      keystroke return
-      delay 20
-  end tell
+        delay 2
 
-      tell application "Native Access"
-      activate
-      delay 5
+        keystroke "student"
+        keystroke return
+        delay 20
+    end tell
+
+        tell application "Native Access"
+        activate
+        delay 5
       
-      tell application "System Events"
+    tell application "System Events"
 
-      keystroke (ASCII character 9)
-      keystroke "dreday"
-      end tell
-end tell
+        keystroke (ASCII character 9)
+        keystroke "dreday"
+    end tell
 
 EOF
