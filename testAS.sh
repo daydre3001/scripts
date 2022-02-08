@@ -7,9 +7,7 @@ sudo osascript <<-EOF
     tell application "System Events"
         keystroke "student"
         keystroke return
-
         delay 2
-
         keystroke "student"
         keystroke return
         delay 20
@@ -20,7 +18,6 @@ sudo osascript <<-EOF
         delay 5
       
     tell application "System Events"
-
         keystroke (ASCII character 9)
         keystroke "dreday"
     end tell
