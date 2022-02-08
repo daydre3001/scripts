@@ -1,0 +1,4 @@
+~/Library/Preferences/Avid/Pro\ Tools/Pro\ Tools\ Prefs
+
+This file will copy over any prefs for protools
+These prefs are by user
