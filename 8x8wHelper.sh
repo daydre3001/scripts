@@ -75,7 +75,7 @@ verifyInstall () {
     if [ "${verify}" ]; then
         return 0
     else
-        echo "`date` : An issue was encountered, trying again" >> %{logfile}
+        echo "`date` : An issue was encountered, please trying again" >> %{logfile}
         downloadAndInstall
     fi
 }
