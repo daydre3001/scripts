@@ -34,14 +34,13 @@ isinstalled=`ls /Applications/ | grep "8x8"`
 if [ "${isinstalled}" ]; then
     currentinstalledver=`/usr/bin/defaults read /Applications/8x8\ Work.app/Contents/Info CFBundleVersion`
     currentinstalledver=${currentinstalledver//(*)/}
-    echo "Current installed version is: $currentinstalledver" >> ${logfile}
+    echo "Current installed version is: $currentinstalledver" | tee -a ${logfile}
 
     if [ "${latestver}" = "${currentinstalledver}" ]; then
-        echo "8x8 is current. Exiting" >> ${logfile}
-        echo "8x8 is current. Exiting"
+        echo "8x8 is current. Exiting" | tee -a ${logfile}
         exit 0
         else
-        echo "Downloading and Installing 8x8"
+        echo "Downloading and Installing 8x8" | tee -a ${logfile}
                 ## Close 8x8 if runnig
             if [ "${workPID}" != "" ]; then
                     kill ${workPID}
@@ -59,8 +58,7 @@ if [ "${isinstalled}" ]; then
             fi
     fi
     else
-    echo "8x8 not installed"
-    echo "8x8 not installed" >> ${logfile}
+    echo "8x8 not installed" | tee -a ${logfile}
 fi
 
 ## Get OS version and adjust for use with the URL string
@@ -71,8 +69,7 @@ userAgent="Mozilla/5.0 (Macintosh; Intel Mac OS X ${OSvers_URL}) AppleWebKit/535
 
 set -e
 ## Download the latest 8x8 image
-echo "`date` : Downloading 8x8 image" >> ${logfile}
-echo "`date` : Downloading 8x8 image"
+echo "`date` : Downloading 8x8 image" | tee -a ${logfile}
 /usr/bin/curl -L -s -S -o /tmp/${imgfile} ${url}
 
 if [ "${isinstalled}" ]; then
@@ -80,7 +77,7 @@ if [ "${isinstalled}" ]; then
     /bin/rm -r -f "/Applications/8x8 Work.app"
 fi
 
-echo "Installing 8x8"
+echo "Installing 8x8" | tee -a $#{logfile}
 ## Attach and copy the 8x8 app
 echo "`date` : Attaching image ${imgfile}" >> ${logfile}
 /usr/bin/hdiutil attach -nobrowse -quiet /tmp/${imgfile}
@@ -94,6 +91,6 @@ echo "`date` : Copying $appName to Applications folder" >> ${logfile}
 echo "`date` : Detaching $installvol and cleaning up" >> ${logfile}
 /usr/bin/hdiutil detach /Volumes/"${installvol}" -force
 /bin/rm /tmp/${imgfile}
-echo "`date` : 8x8 is ready" >> ${logfile}
+echo "`date` : 8x8 is ready" | tee -a ${logfile}
 
 exit 0
