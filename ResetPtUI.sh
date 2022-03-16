@@ -1,1 +1,1 @@
-rm Library/Preferences/Avid/Pro Tools/UI*
+rm /Users/student/Library/Preferences/Avid/Pro\ Tools/UICustomization.txt
