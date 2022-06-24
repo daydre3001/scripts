@@ -4,7 +4,7 @@
 # ABOUT THIS PROGRAM
 #
 # NAME
-#       iLokInstall.sh -- Installs or updates Zoom
+#       iLokInstall.sh -- Installs or updates iLok License Manager
 #
 # SYNOPSIS
 #       sudo iLokInstall.sh
