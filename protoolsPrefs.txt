@@ -1,4 +1,10 @@
 ~/Library/Preferences/Avid/Pro\ Tools/Pro\ Tools\ Prefs
+Copy over new gile to reset Prefs
 
-This file will copy over any prefs for protools
+~/Library/Preferences/Avid/Pro\ Tools/UITheme.txt
+Reset this file to Default
+
+~/Library/Preferences/Avid/Pro\ Tools/UICustomization.txt
+Delete file to reset UI
+
 These prefs are by user
