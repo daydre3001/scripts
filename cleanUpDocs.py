@@ -2,7 +2,7 @@ import os
 from os.path import isfile
 from posixpath import join
 
-skipDirs = ['Pro Tools', 'Presonus']
+skipDirs = ['Pro Tools', 'Presonus', 'Native Instrument', 'iZotope', 'Universal Audio']
 path = "/Users/student/Documents/"
 
 x = os.listdir(path)
