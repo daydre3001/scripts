@@ -19,6 +19,6 @@ for f in x:
         else:
             try:
                 shutil.rmtree(fullpath)
-            execept OSError as e:
+            except OSError as e:
                 continue
             os.rmdir(fullPath)
