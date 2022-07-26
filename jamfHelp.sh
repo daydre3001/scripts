@@ -1,6 +1,6 @@
 #!/bin/bash
 # This sets the variable for jamfHelper results from which button was clicked
-buttonClicked=$(/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType utility -icon /Library/Application\ Support/JAMF/HCS.png -title "HCS Technology Group" -heading "My First Jamf Helper Window" -description "This is anexample of my first Jamf Helper Utility Window" -button1 "OK" -button2 "Cancel")
+buttonClicked=$(/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType utility -title "Emergency Test" -heading "This is only a TEST" -description "This is a test of the emergency notification system" -icon /Users/admin/Documents/new_logo_white.png -button1 "OK" -timeout 10)
 if [ $buttonClicked == 0 ]; then
     # Buttion 1 was Clicked
     echo "OK"
